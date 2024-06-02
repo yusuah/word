@@ -30,7 +30,7 @@ FROM "docker.io/library/python:${PYTHON_VERSION}-slim-${PYTHON_DIST}" as runtime
 
 # Configure entrypoint
 ENTRYPOINT ["/usr/bin/env"]
-CMD [ "streamlit", "run", "0_Home.py" ]
+CMD [ "streamlit", "run", "app.py" ]
 
 # Configure runtime environment variables
 ENV PATH="/app/.venv/bin:${PATH}"

@@ -20,30 +20,27 @@ spec:
       containers:
         - name: server
           # TODO(user): change to your image
-          image: quay.io/ulagbulag/mobilex-exp-backend:v0.7
+          image: docker.io/yusuah/mobilex-exp-backend:v0.2
           env:
             - name: BASE_URL
               value: /api/v1
-            - name: OPENAI_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: openai
-                  key: OPENAI_API_KEY
+            # - name: CLIENT
+            #   value: "sk-proj-yj6wGk05Ifv0nwtp67oYT3BlbkFJL5tG3pNh6ovBJsNmMAvz"
           ports:
             - name: http
               protocol: TCP
               containerPort: 8000
-          volumeMounts:
-            - name: huggingface-hub-token
-              mountPath: /root/.cache/huggingface/token
-              subPath: token
-      volumes:
-        - name: huggingface-hub-token
-          secret:
-            secretName: huggingface-hub
-            items:
-              - key: HUGGING_FACE_HUB_TOKEN
-                path: token
+          # volumeMounts:
+          #   - name: huggingface-hub-token
+          #     mountPath: /root/.cache/huggingface/token
+          #     subPath: token
+      # volumes:
+      #   - name: huggingface-hub-token
+      #     secret:
+      #       secretName: huggingface-hub
+      #       items:
+      #         - key: HUGGING_FACE_HUB_TOKEN
+      #           path: token
 ---
 apiVersion: v1
 kind: Service

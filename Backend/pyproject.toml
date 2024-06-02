@@ -32,6 +32,7 @@ langchainhub = { version = "*" }
 neo4j = { version = "*" }
 python = ">=3.12,<3.13"
 python-dotenv = { version = "*" }
+pillow = "^10.3.0"
 
 
 [build-system]

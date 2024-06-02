@@ -5,7 +5,7 @@ from pydantic_core import Url
 
 class MobileXClient(BaseModel):
     base_url: Url = Field(
-        default=Url('http://localhost:8000'),
+        default=Url('https://10.32.249.134:6443'),
     )
 
     def call[To: BaseModel](
