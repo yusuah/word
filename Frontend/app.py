@@ -22,12 +22,12 @@ def main():
         image_base64 = base64.b64encode(image_bytes.getvalue()).decode('ascii')
 
         if option == "단어장 생성":
-            query = "이 문서는 Reading 영어시험을 공부하기 위한 영어 지문입니다. 하이라이트 표시된 단어들을 모두 찾아 '영단어, 한글 뜻' 형식의 CSV 표로 변환하세요. CSV의 표 줄은 '\n'으로 하고, 헤더를 추가하시오. 이때 어떠한 부차적인 수식어 (예: 알겠습니다) 등을 말하지 않고 결과만 말하세요."
+            query = "이 문서는 Reading 영어시험을 공부하기 위한 영어 지문입니다. 하이라이트 표시된 단어들을 모두 찾아 (make sure you double check your inspections from the context) '영단어, 한글 뜻' 형식의 CSV 표로 변환하세요. CSV의 표 줄은 '\n'으로 하고, 헤더를 추가하시오. 이때 어떠한 부차적인 수식어 (예: 알겠습니다) 등을 말하지 않고 결과만 말하세요."
         elif option == "시험지 생성":
-            query = "이 문서는 Reading 영어시험을 공부하기 위한 영어 지문입니다. 하이라이트 표시된 단어들을 모두 골라 '영단어, ____________' 형식의 CSV 표로 변환하세요. CSV의 표 줄은 '\n'으로 하고, 헤더는 '하이라이트 된 영단어, 빈칸'으로 추가하시오. 이때 어떠한 부차적인 수식어 (예: 알겠습니다) 등을 말하지 않고 결과만 말하세요."
+            query = "이 문서는 Reading 영어시험을 공부하기 위한 영어 지문입니다. 하이라이트 표시된 단어들을 모두 골라 (make sure you double check your inspections from the context) '영단어, ____________' 형식의 CSV 표로 변환하세요 (2열은 적당한 길이의 빈칸으로 비워두세요). CSV의 표 줄은 '\n'으로 하고, 헤더는 '하이라이트 된 영단어, 빈칸'으로 추가하시오. 이때 어떠한 부차적인 수식어 (예: 알겠습니다) 등을 말하지 않고 결과만 말하세요."
 
         response = requests.post(
-            "https://10.32.249.134:6443/generate_content",
+            "http://backend:8000/generate_content",
             json={"image": image_base64, "query": query, "option": option},
         )
 
