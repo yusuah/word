@@ -3,7 +3,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from openai import OpenAI
 
-client = OpenAI(api_key="sk-proj-yj6wGk05Ifv0nwtp67oYT3BlbkFJL5tG3pNh6ovBJsNmMAvz")
+client = OpenAI(api_key="")
 from PIL import Image
 import io
 import base64
