@@ -25,7 +25,7 @@ spec:
             - name: BASE_URL
               value: /api/v1
             # - name: CLIENT
-            #   value: "sk-proj-yj6wGk05Ifv0nwtp67oYT3BlbkFJL5tG3pNh6ovBJsNmMAvz"
+            #   value: ""
           ports:
             - name: http
               protocol: TCP
